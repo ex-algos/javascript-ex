@@ -3,8 +3,19 @@
 // convenience to get you started writing code faster.
 //
 
-export const decodedValue = () => {
-  throw new Error('Remove this statement and implement this function');
+export const decodedValue = (colorInputs) => {
+  let numberString = "";
+
+  for (let colIndex = 0; colIndex < 2; colIndex++) {
+    for (let i = 0; i < COLORS.length; i++) {
+      if (COLORS[i] === colorInputs[colIndex]) {
+        numberString += i;
+      }
+    }
+  }
+
+  const output = parseInt(numberString);
+  return output;
 };
 
 const COLORS = [
