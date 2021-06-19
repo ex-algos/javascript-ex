@@ -3,8 +3,12 @@
 // convenience to get you started writing code faster.
 //
 
-export const colorCode = () => {
-  throw new Error('Remove this statement and implement this function');
+export const colorCode = (color) => {
+  for (let i = 0; i <= COLORS.length; i++) {
+    if (COLORS[i] == color) {
+      return i;
+    }
+  }
 };
 
 export const COLORS = [
