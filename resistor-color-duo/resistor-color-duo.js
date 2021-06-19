@@ -6,3 +6,16 @@
 export const decodedValue = () => {
   throw new Error('Remove this statement and implement this function');
 };
+
+const COLORS = [
+  'black',
+  'brown',
+  'red',
+  'orange',
+  'yellow',
+  'green',
+  'blue',
+  'violet',
+  'grey',
+  'white',
+];
