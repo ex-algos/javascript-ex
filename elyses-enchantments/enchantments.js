@@ -58,7 +58,8 @@ export function removeItem(cards, position) {
  * @returns {number[]} the cards without the removed card
  */
 export function removeItemFromTop(cards) {
-    throw new Error("Implement the removeItemFromTop function");
+    cards.pop();
+    return cards;
 }
 
 /**
