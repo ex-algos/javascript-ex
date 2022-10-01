@@ -33,7 +33,8 @@ export function frontDoorPassword(word) {
  * @returns {string}
  */
 export function backDoorResponse(line) {
-    throw new Error("Remove this line and implement the function");
+    line = line.trim();
+    return line[line.length - 1];
 }
 
 /**
