@@ -10,6 +10,21 @@ export function frontDoorResponse(line) {
 }
 
 /**
+ * Collect string input and capitalize full text.
+ *
+ * @param {string} word
+ * @returns {string}
+ */
+function capitalizer(word) {
+    let lowerWord = word.toLowerCase();
+    let firstLetter = lowerWord.slice(0, 1).toUpperCase();
+    let restOfWord = lowerWord.slice(1, lowerWord.length);
+
+    let fullWord = firstLetter + restOfWord;
+    return fullWord;
+}
+
+/**
  * Format the password for the front-door, given the response
  * letters.
  *
@@ -17,12 +32,7 @@ export function frontDoorResponse(line) {
  * @returns {string} the front door password
  */
 export function frontDoorPassword(word) {
-    let lowerWord = word.toLowerCase();
-    let firstLetter = lowerWord.slice(0, 1).toUpperCase();
-    let restOfWord = lowerWord.slice(1, lowerWord.length);
-
-    let fullWord = firstLetter + restOfWord;
-    return fullWord;
+    return capitalizer(word);
 }
 
 /**
