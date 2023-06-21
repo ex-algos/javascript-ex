@@ -11,7 +11,13 @@
  * @returns {number} total bird count
  */
 export function totalBirdCount(birdsPerDay) {
-  throw new Error('Please implement the totalBirdCount function');
+  let totalBirdCount = 0;
+
+  for (let i = 0; i < birdsPerDay.length; i++) {
+    totalBirdCount += birdsPerDay[i];
+  }
+
+  return totalBirdCount;
 }
 
 /**
@@ -22,7 +28,47 @@ export function totalBirdCount(birdsPerDay) {
  * @returns {number} birds counted in the given week
  */
 export function birdsInWeek(birdsPerDay, week) {
-  throw new Error('Please implement the birdsInWeek function');
+  let weeks = "";
+
+  // separate weeks by "." symbol
+
+  for (let i = 0; i < birdsPerDay.length; i++) {
+    let block = "";
+
+    if ((i + 1) % 7 === 0) {
+      block += birdsPerDay[i];
+      block += ".";
+    } else {
+      block += birdsPerDay[i];
+    }
+
+    weeks += block;
+  }
+
+  let weeksArray = weeks.split(".");
+  weeksArray.pop();
+
+  // convert days in string to integers
+
+  let weekDayStrings = [];
+
+  weeksArray.forEach((days) => weekDayStrings.push(days.split("")));
+
+  function convertStringArray(input) {
+    let total = [];
+
+    for (let i = 0; i < input.length; i++) {
+      total.push(parseInt(input[i]));
+    }
+
+    return total;
+  }
+
+  // sum selected week's days
+
+  const weekSum = totalBirdCount(convertStringArray(weekDayStrings[week - 1]));
+
+  return weekSum;
 }
 
 /**
@@ -33,5 +79,11 @@ export function birdsInWeek(birdsPerDay, week) {
  * @returns {number[]} corrected bird count data
  */
 export function fixBirdCountLog(birdsPerDay) {
-  throw new Error('Please implement the fixBirdCountLog function');
+  birdsPerDay.forEach((el, index) => {
+    if (index === 0 || index % 2 === 0) {
+      birdsPerDay[index] = el + 1;
+    }
+  });
+
+  return birdsPerDay;
 }
