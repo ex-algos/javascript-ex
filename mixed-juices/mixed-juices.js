@@ -72,9 +72,8 @@ export function remainingOrders(timeLeft, orders) {
   let ordersLeft = [...orders];
 
   for (let i = 0; i < orders.length; i++) {
-    prepTime += timeToMixJuice(orders[i]);
-
-    if (timeLeft < prepTime) {
+    while (prepTime < timeLeft) {
+      prepTime += timeToMixJuice(ordersLeft[i]);
       ordersLeft.shift();
     }
   }
