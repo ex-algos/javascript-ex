@@ -25,7 +25,9 @@ export function createVisitor(name, age, ticketId) {
  * @returns {Visitor} the visitor without a ticket
  */
 export function revokeTicket(visitor) {
-  throw new Error('Please implement the revokeTicket function.');
+  visitor['ticketId'] = null;
+
+  return visitor;
 }
 
 /**
