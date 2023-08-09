@@ -56,7 +56,13 @@ export function ticketStatus(tickets, ticketId) {
  * @returns {string} ticket status
  */
 export function simpleTicketStatus(tickets, ticketId) {
-  throw new Error('Please implement the simpleTicketStatus function.');
+  if (ticketStatus(tickets, ticketId) === 'not sold') {
+    return 'invalid ticket !!!';
+  } else if (ticketStatus(tickets, ticketId) === 'unknown ticket id') {
+    return 'invalid ticket !!!';
+  } else {
+    return tickets[ticketId];
+  }
 }
 
 /**
