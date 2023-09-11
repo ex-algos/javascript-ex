@@ -43,7 +43,7 @@ export function errorMessage(input) {
 
   if (input === '' || input === null || input === undefined) {
     output = 'Required field';
-  } else (Number.isNaN(Number(input)) || Number(input) === 0) {
+  } else if (Number.isNaN(Number(input)) || Number(input) === 0) {
     output = 'Must be a number besides 0';
   }
 
