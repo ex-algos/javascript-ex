@@ -18,3 +18,7 @@ export function cookingStatus(remainingTime) {
     }
   }
 }
+
+export function preparationTime(layers, timePerLayer = 2) {
+  return layers.length * timePerLayer;
+}
