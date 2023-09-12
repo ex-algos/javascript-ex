@@ -22,3 +22,23 @@ export function cookingStatus(remainingTime) {
 export function preparationTime(layers, timePerLayer = 2) {
   return layers.length * timePerLayer;
 }
+
+export function quantities(layers) {
+  let noodlesCount = 0;
+  let sauceCount = 0;
+
+  for (const layer in layers) {
+    if (layers[layer] === 'noodles') {
+      noodlesCount += 1;
+    }
+
+    if (layers[layer] === 'sauce') {
+      sauceCount += 1;
+    }
+  }
+
+  return {
+    noodles: 50 * noodlesCount,
+    sauce: 0.2 * sauceCount,
+  };
+}
