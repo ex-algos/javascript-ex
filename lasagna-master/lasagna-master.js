@@ -42,3 +42,7 @@ export function quantities(layers) {
     sauce: 0.2 * sauceCount,
   };
 }
+
+export function addSecretIngredient(friendsList, myList) {
+  myList[myList.length] = friendsList[friendsList.length - 1];
+}
