@@ -55,9 +55,9 @@ export function scale2d(sx, sy) {
 export function composeTransform(f, g) {
   return function output(x, y) {
     const input = f(x, y);
-    const output = g(input[0], input[1]);
+    const feedback = g(input[0], input[1]);
 
-    return output;
+    return feedback;
   };
 }
 
@@ -71,5 +71,16 @@ export function composeTransform(f, g) {
  *  if the arguments are the same on subsequent calls, or compute a new result if they are different.
  */
 export function memoizeTransform(f) {
-  throw new Error('Implement the memoizeTransform function');
+  let output = null;
+  let result = null;
+
+  return function (...args) {
+    if (output && JSON.stringify(args) === JSON.stringify(output)) {
+      return result;
+    } else {
+      output = args;
+      result = f(...args);
+      return result;
+    }
+  };
 }
