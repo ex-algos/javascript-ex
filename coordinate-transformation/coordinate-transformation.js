@@ -53,7 +53,12 @@ export function scale2d(sx, sy) {
  *  transformed coordinate pair in the form [x, y]
  */
 export function composeTransform(f, g) {
-  throw new Error('Implement the composeTransform function');
+  return function output(x, y) {
+    const input = f(x, y);
+    const output = g(input[0], input[1]);
+
+    return output;
+  };
 }
 
 /**
