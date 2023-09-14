@@ -15,7 +15,12 @@
  *  translated coordinate pair in the form [x, y]
  */
 export function translate2d(dx, dy) {
-  throw new Error('Implement the translate2d function');
+  return function output(x, y) {
+    const newX = x + dx;
+    const newY = y + dy;
+
+    return [newX, newY];
+  };
 }
 
 /**
@@ -29,7 +34,12 @@ export function translate2d(dx, dy) {
  *  scaled coordinate pair in the form [x, y]
  */
 export function scale2d(sx, sy) {
-  throw new Error('Implement the scale2d function');
+  return function output(x, y) {
+    const newX = x * sx;
+    const newY = y * sy;
+
+    return [newX, newY];
+  };
 }
 
 /**
@@ -43,7 +53,12 @@ export function scale2d(sx, sy) {
  *  transformed coordinate pair in the form [x, y]
  */
 export function composeTransform(f, g) {
-  throw new Error('Implement the composeTransform function');
+  return function output(x, y) {
+    const input = f(x, y);
+    const feedback = g(input[0], input[1]);
+
+    return feedback;
+  };
 }
 
 /**
@@ -56,5 +71,16 @@ export function composeTransform(f, g) {
  *  if the arguments are the same on subsequent calls, or compute a new result if they are different.
  */
 export function memoizeTransform(f) {
-  throw new Error('Implement the memoizeTransform function');
+  let output = null;
+  let result = null;
+
+  return function (...args) {
+    if (output && JSON.stringify(args) === JSON.stringify(output)) {
+      return result;
+    } else {
+      output = args;
+      result = f(...args);
+      return result;
+    }
+  };
 }
