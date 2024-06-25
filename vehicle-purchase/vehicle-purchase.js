@@ -27,7 +27,14 @@ export function needsLicense(kind) {
  * @returns {string} a sentence of advice which option to choose
  */
 export function chooseVehicle(option1, option2) {
-  throw new Error('Please implement the chooseVehicle function');
+  const nameA = option1.split(' ').join('');
+  const nameB = option2.split(' ').join('');
+
+  const decision = [nameA, nameB].sort();
+
+  let selectedOption = decision[0] === nameA ? option1 : option2;
+
+  return `${selectedOption} is clearly the better choice.`;
 }
 
 /**
