@@ -22,31 +22,14 @@ describe('timeToMixJuice', () => {
 
 describe('limesToCut', () => {
   test('calculates the number of limes needed to reach the target supply', () => {
-    const limes = [
-      'small',
-      'large',
-      'large',
-      'medium',
-      'small',
-      'large',
-      'large',
-      'medium',
-    ];
+    const limes = ['small', 'large', 'large', 'medium', 'small', 'large', 'large', 'medium'];
     expect(limesToCut(42, limes)).toBe(6);
 
     expect(limesToCut(4, ['medium', 'small'])).toBe(1);
   });
 
   test('uses up all limes if there are not enough to reach the target', () => {
-    const limes = [
-      'small',
-      'large',
-      'large',
-      'medium',
-      'small',
-      'large',
-      'large',
-    ];
+    const limes = ['small', 'large', 'large', 'medium', 'small', 'large', 'large'];
 
     expect(limesToCut(80, limes)).toBe(7);
   });
@@ -62,13 +45,7 @@ describe('limesToCut', () => {
 
 describe('remainingOrders', () => {
   test('correctly determines the remaining orders', () => {
-    const orders = [
-      'Tropical Island',
-      'Energizer',
-      'Limetime',
-      'All or Nothing',
-      'Pure Strawberry Joy',
-    ];
+    const orders = ['Tropical Island', 'Energizer', 'Limetime', 'All or Nothing', 'Pure Strawberry Joy'];
     const expected = ['All or Nothing', 'Pure Strawberry Joy'];
 
     expect(remainingOrders(7, orders)).toEqual(expected);
@@ -92,14 +69,7 @@ describe('remainingOrders', () => {
   });
 
   test('counts all orders as fulfilled if there is enough time', () => {
-    const orders = [
-      'Energizer',
-      'Green Garden',
-      'Ruby Glow',
-      'Pure Strawberry Joy',
-      'Tropical Island',
-      'Limetime',
-    ];
+    const orders = ['Energizer', 'Green Garden', 'Ruby Glow', 'Pure Strawberry Joy', 'Tropical Island', 'Limetime'];
 
     expect(remainingOrders(12, orders)).toEqual([]);
   });
