@@ -7,7 +7,11 @@
  * @returns {Record<string, number>} new score board
  */
 export function createScoreBoard() {
-  throw new Error('Please implement the createScoreBoard function');
+  let scoreData = {
+    'The Best Ever': 1000000,
+  };
+
+  return scoreData;
 }
 
 /**
