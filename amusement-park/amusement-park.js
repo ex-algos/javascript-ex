@@ -1,4 +1,7 @@
 /// <reference path="./global.d.ts" />
+
+import { queryObjects } from 'v8';
+
 // @ts-check
 
 /**
@@ -38,7 +41,15 @@ export function revokeTicket(visitor) {
  * @returns {string} ticket status
  */
 export function ticketStatus(tickets, ticketId) {
-  throw new Error('Please implement the ticketStatus function.');
+  if (!Object.keys(tickets).includes(ticketId)) {
+    return 'unknown ticket id';
+  } else {
+    if (tickets[ticketId] === null) {
+      return 'not sold';
+    } else {
+      return `sold to ${tickets[ticketId]}`;
+    }
+  }
 }
 
 /**
