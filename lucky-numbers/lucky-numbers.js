@@ -21,7 +21,11 @@ export function twoSum(array1, array2) {
  * @returns {boolean} whether the number is a palindrome or not
  */
 export function luckyNumber(value) {
-  throw new Error('Implement the luckyNumber function');
+  const valueString = String(value);
+  const valueArray = valueString.split('');
+  const valueReverse = Number(valueArray.reverse().join(''));
+
+  return value === valueReverse ? true : false;
 }
 
 /**
