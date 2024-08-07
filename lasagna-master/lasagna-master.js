@@ -26,3 +26,10 @@ export function cookingStatus(remainingTime) {
 export function preparationTime(layers, averageTime = 2) {
   return layers.length * averageTime;
 }
+
+export function quantities(layers) {
+  const noodles = layers.filter((item) => item === 'noodles').length * 50;
+  const sauce = layers.filter((item) => item === 'sauce').length * 0.2;
+
+  return { noodles: noodles, sauce: sauce };
+}
