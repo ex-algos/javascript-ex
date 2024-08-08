@@ -39,7 +39,7 @@ export function buildBirthdaySign(age) {
  */
 
 export function graduationFor(name, year) {
-  throw new Error('Implement the graduationFor function');
+  return `Congratulations ${name}!\nClass of ${year}`;
 }
 
 /**
