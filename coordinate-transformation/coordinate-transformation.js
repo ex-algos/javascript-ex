@@ -63,5 +63,18 @@ export function composeTransform(f, g) {
  *  if the arguments are the same on subsequent calls, or compute a new result if they are different.
  */
 export function memoizeTransform(f) {
-  throw new Error('Implement the memoizeTransform function');
+  const cache = new Map();
+
+  return function memoizedFunc(...args) {
+    const key = JSON.stringify(args);
+
+    if (cache.has(key)) {
+      return cache.get(key); // retrieve last result
+    }
+
+    const result = f(...args);
+    cache.clear(); // clear older results
+    cache.set(key, result); // set current result value
+    return result;
+  };
 }
