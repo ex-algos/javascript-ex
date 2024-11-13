@@ -22,7 +22,9 @@ export function getFirstCard(deck) {
  * @returns {Card} the second card in the deck
  */
 export function getSecondCard(deck) {
-    throw new Error('Implement the getSecondCard function');
+    const card = deck.slice(1)[0];
+
+    return card;
 }
 
 /**
