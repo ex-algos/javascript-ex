@@ -74,5 +74,9 @@ const FACE_CARDS = ['jack', 'queen', 'king'];
  * third, and fourth cards are the face cards
  */
 export function insertFaceCards(deck) {
-    throw new Error('Implement the insertFaceCards function');
+    const topCard = getFirstCard(deck);
+
+    deck.shift();
+
+    return [topCard, ...FACE_CARDS, ...deck];
 }
